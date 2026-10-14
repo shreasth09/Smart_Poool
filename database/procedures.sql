@@ -1,0 +1,18 @@
+-- SQLite does not implement stored procedures (CREATE PROCEDURE).
+-- The transactional equivalents are implemented in the Node.js application so these
+-- workflows remain executable against the same SQLite database.
+--
+-- Procedure-style workflow 1: GeneratePoolingOpportunities
+--   API: POST /api/pooling/generate
+--   Groups pending orders at the same destination within 75 minutes; max 4 per pool.
+--
+-- Procedure-style workflow 2: AcceptPoolingOpportunity(opportunity_id)
+--   API: POST /api/pooling/opportunities/:id/accept
+--   Checks order availability and rider platform compatibility, then atomically inserts
+--   a delivery batch, creates batch_orders, updates order/rider status and accepts the pool.
+--
+-- Procedure-style workflow 3: UpdateBatchStatus(batch_id, status)
+--   API: PATCH /api/batches/:id/status
+--   Updates batch and linked order statuses and frees a rider on completion/cancellation.
+--
+-- These workflows run within BEGIN IMMEDIATE / COMMIT transactions in server/src/routes.js.

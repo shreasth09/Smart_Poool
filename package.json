@@ -1,0 +1,16 @@
+{
+  "name": "smart-delivery-pooling-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Smart Delivery Pooling System - full-stack DBMS college project",
+  "type": "module",
+  "scripts": {
+    "start": "node server/src/index.js",
+    "dev": "node --watch server/src/index.js",
+    "check": "node --check server/src/index.js && node --check server/src/db.js && node --check server/src/routes.js && node --check server/src/router.js && node --check client/src/app.js",
+    "test:smoke": "node tests/smoke.mjs"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}

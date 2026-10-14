@@ -1,0 +1,20 @@
+SMART DELIVERY POOLING SYSTEM — START HERE
+
+1) Extract this ZIP to a folder.
+2) Make sure Node.js 22.5 or newer is installed.
+3) Double-click RUN_PROJECT.bat. It checks for a free port from 3000 to 3010 and uses the next free one if 3000 is already occupied by another project.
+4) Your browser opens automatically. The server terminal prints the exact dashboard URL and API health URL. Keep that terminal open while presenting.
+
+No npm install is needed. This project uses Node's built-in SQLite module.
+The local relational database is created and seeded automatically on first start.
+
+Demo flow:
+Overview -> Pooling engine -> Generate opportunities -> Accept pool ->
+Delivery batches -> Picked up -> Complete.
+
+If the batch file does not run, open a terminal in this folder and run:
+  node --version
+  npm start
+Then open http://localhost:3000 (if port 3000 is free).
+
+Stop the app with Ctrl+C in the server terminal.

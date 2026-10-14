@@ -1,0 +1,5 @@
+server/data/*.db
+server/data/*.db-shm
+server/data/*.db-wal
+node_modules/
+.DS_Store
